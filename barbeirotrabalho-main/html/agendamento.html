@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento</title>
+    <link rel="stylesheet" href="agendamentostyle.css">
+</head>
+
+<body>
+    <h1>tente a sorte de agendar o dia😂</h1>
+    <div>
+        <form id="agendamentoForm">
+
+            <label for="data">Data:</label>
+            <input type="date" id="data" required>
+
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" required>
+
+            <label for="servicos">Serviços:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" id="barba"> Barba</label>
+                <label><input type="checkbox" id="cabelo"> Cabelo</label>
+                <label><input type="checkbox" id="sobrancelha"> Sobrancelha</label>
+                <label><input type="checkbox" id="hidratacao"> Hidratação</label>
+            </div>
+
+            <button type="submit">Tente a sorte</button>
+        </form>
+    </div>
+
+    <script>
+        const formulario = document.getElementById('agendamentoForm');
+
+        formulario.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const data = document.getElementById('data').value;
+            const hora = document.getElementById('hora').value;
+
+            const servicos = [];
+            if (document.getElementById('barba').checked) servicos.push('Barba');
+            if (document.getElementById('cabelo').checked) servicos.push('Cabelo');
+            if (document.getElementById('sobrancelha').checked) servicos.push('Sobrancelha');
+            if (document.getElementById('hidratacao').checked) servicos.push('Hidratação');
+
+            if (servicos.length === 0) {
+                alert('Escolha algum servico bestao');
+                return;
+            }
+            alert('Pronto,(espere a convocacao!!)');
+            window.location.href = 'principal.html';
+        });
+    </script>
+
+</body>
+
+</html>
